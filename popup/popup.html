@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>따라온나</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header-title-wrapper">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="title">따라온나</h1>
+      </div>
+      <button id="resetBtn" class="reset-btn" title="대화 초기화">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23 4V10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1 20V14H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.51 9.00008C4.01717 7.56678 4.87913 6.2854 6.02111 5.27541C7.1631 4.26543 8.54927 3.55866 10.054 3.21896C11.5587 2.87926 13.1345 2.91722 14.6366 3.32948C16.1387 3.74174 17.5195 4.51523 18.65 5.58008L23 10.0001M1 14.0001L5.35 18.4201C6.48053 19.4849 7.86134 20.2584 9.36343 20.6707C10.8655 21.0829 12.4413 21.1209 13.946 20.7812C15.4507 20.4415 16.8369 19.7347 17.9789 18.7247C19.1209 17.7147 19.9828 16.4334 20.49 15.0001" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- 채팅 영역 -->
+    <div id="chatArea" class="chat-area">
+      <!-- 환영 메시지 -->
+      <div class="message ai-message">
+        <div class="message-avatar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 6C13.66 6 15 7.34 15 9C15 10.66 13.66 12 12 12C10.34 12 9 10.66 9 9C9 7.34 10.34 6 12 6ZM12 19.2C9.5 19.2 7.29 17.92 6 15.98C6.03 13.99 10 12.9 12 12.9C13.99 12.9 17.97 13.99 18 15.98C16.71 17.92 14.5 19.2 12 19.2Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="message-content">
+          <p>안녕하세요! 무엇을 도와드릴까요?</p>
+          <p class="message-hint">예: "주민등록등본 발급하고 싶어요"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 액션 버튼 영역 (동적으로 표시) -->
+    <div id="actionArea" class="action-area hidden">
+      <button id="confirmYes" class="action-btn action-yes">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
+          <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        네, 맞아요
+      </button>
+      <button id="confirmNo" class="action-btn action-no">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        아니에요
+      </button>
+    </div>
+
+    <!-- 입력 영역 -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea id="userInput" class="user-input" placeholder="무엇을 찾으시나요?" rows="1"></textarea>
+        <button id="sendBtn" class="send-btn" title="보내기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9L22 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 로딩 인디케이터 -->
+    <div id="loadingIndicator" class="loading-indicator hidden">
+      <div class="loading-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span>확인 중...</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
